@@ -1,0 +1,88 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+$this->load->view('common/header');
+$this->load->view('common/navbar');
+?>
+
+<div class="col-md-9 col-sm-8 col-xs-12">
+    <h3>Problem Submission</h3>
+    <hr>
+    <form role="form" action="<?=base_url();?>problem_submit/save" method="post">
+        <div class="row">
+            <div class="form-group col-md-6 required">
+                <label class="control-label">Problem Title:</label>
+                <input type="text" name="title" maxlength="255" class="form-control" placeholder="Give problem title" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="control-label">Problem Type:</label>
+                <select name="type" class="form-control">
+                    <option>Select Type</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="Java">Java</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label>Problem Level:</label>
+                <select name="level" class="form-control">
+                    <option>Select Level</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="2">3</option>
+                    <option value="2">4</option>
+                    <option value="2">5</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6 required">
+                <label class="control-label">Key Words:</label>
+                <input type="text" name="keywords" maxlength="100" class="form-control" placeholder="Like char, float, break " required>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="control-label">Problem Description:</label>
+            <textarea name="description" class="form-control" placeholder="Tell problem description" required></textarea>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-7">
+                <div class="form-group margin0 required">
+                    <label class="control-label">Reference Guide:</label>
+                    <textarea name="reference_guide" class="form-control height-130 margin0" maxlength="255"  placeholder="Tell reference links as separate" required></textarea>
+                </div>
+            </div>
+            <div class="form-group col-md-5 required">
+                <label class="control-label">Content Coverage:</label>
+                <?php
+                echo form_multiselect('coverage[]', $coverages, '', 'class="form-control custom-text"');
+                ?>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="control-label">Learning Outcome:</label>
+            <textarea name="learning_outcome" class="form-control" placeholder="Tell learning outcome" required></textarea>
+        </div>
+        <div class="form-group required">
+            <label class="control-label">Standard Code:</label>
+            <textarea name="solution_code" maxlength="255" class="form-control" placeholder="Tell standard code" required></textarea>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Sample Input:</label>
+            <textarea name="sample_input" maxlength="255" class="form-control" placeholder="Tell sample input"></textarea>
+        </div>
+        <div class="form-group required">
+            <label class="control-label">Sample Output:</label>
+            <textarea name="sample_output" maxlength="255" class="form-control" placeholder="Tell sample output" required></textarea>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-success pull-right">Submit</button>
+            </div>
+        </div>
+    </form>
+    <?php if (isset($success_msg)) { echo $success_msg; } ?>
+</div>
+
+<?php
+$this->load->view('common/footer');
+?>

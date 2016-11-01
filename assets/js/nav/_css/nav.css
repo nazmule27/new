@@ -1,0 +1,341 @@
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lobster'), local('Lobster-Regular'), url(../fonts/TSDaXhyJuDJ-NBU0popSWA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Pathway Gothic One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pathway Gothic One'), local('PathwayGothicOne-Regular'), url(../fonts/Lqv9ztoTUV8Q0FmQZzPqaDZ8Xgu54OUP9A9ig-MN_aY.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Questrial';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Questrial'), local('Questrial-Regular'), url(../fonts/MYWJ4lYm5dbZ1UBuYox79KCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+@media screen {
+
+  nav .touch-btn {
+    display: none
+  }
+  nav a {
+    text-decoration: none;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 20px;
+    color: #333;
+  }
+  nav a:hover {
+    text-decoration: none;
+    color: #333;
+  }
+  nav ul,
+  nav ul li {
+    margin: 0;
+    padding: 0
+  }
+  nav a:focus {
+    /*color: #333;*/
+    text-decoration: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-nav {
+    display: block!important
+  }
+  #nav-container {
+    float: right;
+    width:100%; /*for vertical*/
+  }
+  nav a {
+    text-decoration: none;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 19px;
+    color: #333;
+  }
+  nav a:hover {
+    text-decoration: none;
+    color: #333;
+  }
+  nav ul li {
+    display: block;
+    /*float: left;
+    display: inline;*/
+    /*width: 177px;*/
+    position: relative;
+    margin: 0;
+    background-color: #CCC;
+  }
+  nav ul li:hover {
+    background-color: #999
+  }
+  nav>ul>li {
+    margin: 1px 0px 0 0
+  }
+  nav ul li a {
+    color: #dedede;
+    padding: 9px 12px 9px 10px;
+    display: block;
+    text-align: left;
+  }
+  nav ul li a:hover {
+    background-color: #8ad648;
+  }
+  nav>ul>li {
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
+    background: #7f7e7e;
+    border-color: #8ad648;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100 */
+    background: -moz-linear-gradient(left,  rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+  }
+  nav>ul>li>a {
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    color: #333333;
+  }
+  nav ul li a.parent:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right:8px;
+    margin-top: -2px;
+    height: 0;
+    width: 0;
+    /* order of following 3 rules important for fallbacks to work */
+    border:4px solid transparent;
+    /*border-top-color: #dFeEFF;*/
+    border-top-color: rgba(200,200,200,0.7);
+  }
+  nav ul li a.parent:hover {
+    border-top-color: rgba(255,255,255,0.9);
+  }
+  nav ul li ul {
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0px 20px 0 0px;
+    opacity: 0;
+    -webkit-box-shadow: 1px 1px 2px rgba(50, 50, 50, .35);
+    -moz-box-shadow: 1px 1px 2px rgba(50, 50, 50, .35);
+    box-shadow: 1px 1px 2px rgba(50, 50, 50, .35);
+
+    right:-190px;
+    top:0;
+    z-index:100;
+  }
+  nav ul li:hover>ul {
+    max-height: 1000px;
+    overflow: visible;
+    margin: 0;
+    opacity: 1
+  }
+  nav ul li ul li {
+    background-color:rgba(0,0,0,0.7);
+    border-top: 1px solid #ddd;
+    width: 190px;
+  }
+  nav ul li ul li a.parent:after {
+    margin-top: -3px;
+    margin-right: -3px;
+    border-color: transparent;
+    border-left-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
+    border-left-color: rgba(200,200,200,0.7);
+  }
+  nav ul li ul li a.parent:hover {
+    border-left-color: rgba(255,255,255,0.9);
+  }
+  nav ul li ul li ul {
+    float: left;
+    position: absolute;
+    left: 190px;
+    top: 0;
+    width: 0;
+    margin: 0 0 0 -20px;
+  }
+  nav ul li ul li:hover>ul {
+    margin: 0;
+    width: 190px
+  }
+  nav ul li ul li ul li,
+  nav ul li ul li ul li ul li {
+    /*background-color: #CCC*/
+  }
+}
+@media only screen and (max-width: 767px) {
+  .shadow {
+    padding: 20px
+  }
+  .main-container {
+    width: auto;
+    padding: 0
+  }
+  img {
+    max-width: 250px;
+    height: auto!important
+  }
+  #header {
+    padding: 20px;
+    font-size: 30px
+  }
+  #header a.buy-btn {
+    display: none
+  }
+  .hero-pic {
+    background-size: 85%;
+    height: 200px
+  }
+  .right-column-container {
+    float: none;
+    margin: auto;
+    width: auto
+  }
+  .right-column {
+    margin: 20px 0
+  }
+  ul.browsers li {
+    width: 75px;
+    height: 40px;
+    padding: 75px 5px 5px;
+    margin: 0 10px 0 0
+  }
+  ul.browsers li.chrome,
+  ul.browsers li.ff,
+  ul.browsers li.ie,
+  ul.browsers li.opera,
+  ul.browsers li.safari {
+    background-size: 75px auto
+  }
+  a.toggleMenu {
+    padding: 10px;
+    /*margin: 10px 10px 0;*/
+    text-decoration: none;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    background-color: #476e25;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+  }
+  nav {
+    /*margin: 0 10px 10px;*/
+    margin: 0;
+  }
+  nav ul li {
+    list-style: none;
+    border-top: solid 1px #888888;
+  }
+  nav>ul>li {
+    background-color: #81c843;
+  }
+  nav ul li a {
+    padding: 10px;
+    display: block
+  }
+  nav ul li ul {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease
+  }
+  nav>ul {
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease
+  }
+  nav ul li ul li a {
+    background: url(../_images/bullet-sub.gif) no-repeat 6px 8px;
+    padding: 5px 5px 5px 18px;
+  }
+  /*nav ul li ul li a:before {
+    content: '';
+    height: 0;
+    width: 0;
+
+    border:8px solid transparent;
+    border-top-color: #666666;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+
+   }
+   */
+  nav ul li.active>ul,
+  nav>ul.active {
+    max-height: 1000px
+  }
+  span.touch-btn {
+    float: right;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    width: 23px;
+    height: 23px;
+    margin: 2px 0 0 0;
+    padding: 2px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    text-align: center;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    display: block;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url(../_images/plus-minus.gif) no-repeat 50% 2px #666
+  }
+  a.toggleMenu span.touch-btn,
+  nav ul li.active>a.parent span.touch-btn {
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    background-position: 50% -18px
+  }
+  a.toggleMenu.active span.touch-btn {
+    background-position: 50% 2px;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg)
+  }
+}
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+  nav ul li ul {
+    display: none
+  }
+  nav ul li:hover>ul {
+    display: block
+  }
+}
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+  nav ul li ul {
+    display: none
+  }
+  nav ul li:hover>ul {
+    display: block
+  }
+
+}

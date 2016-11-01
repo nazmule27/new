@@ -1,0 +1,31 @@
+<?php
+$CI = &get_instance();
+$role = $CI->session->userdata('role');
+$username = $CI->session->userdata('username');
+?>
+<div class="col-md-3 col-sm-4 col-xs-12">
+    <div class="nav-block">
+        <div id="nav-container">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="<?=base_url();?>Home"><i class="glyphicon glyphicon-home"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="<?=base_url();?>Problem_Submit"><i class="glyphicon glyphicon-pencil"></i> Problem Submit</a>
+                    </li>
+                    <li>
+                        <a href="<?=base_url();?>Problem_Sist"><i class=" glyphicon glyphicon-th-list"></i> Problem List</a>
+                    </li>
+                    <li>
+                        <a href="<?=base_url();?>Solution_Submit"><i class=" glyphicon glyphicon-th-list"></i> Learning</a>
+                    </li>
+                    <li>
+                        <a href="<?=base_url();?>Contact"><i class="glyphicon glyphicon-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!--nav end-->
+    </div>
+</div>
