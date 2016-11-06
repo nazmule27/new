@@ -7,7 +7,7 @@ $this->load->view('common/navbar');
 <div class="col-md-9 col-sm-8 col-xs-12">
     <h4>Overview of new application of CSE Dept</h4>
     <p style="text-align: justify">
-        We are trying to incorporate new applications of this department to a new framework. Hew including, Postgraduate Progress Committee application, File Tracker application, in Postgraduate Progress Committee app Student now can collaborate with there supervisor through this system.
+        Welcome to the new extended applications of CSE, BUET. This site is continuously under development as new applications are being developed. So far, we have developed an application for "Postgraduate Student Progress" and a "File Tracker Application. For comments and suggestions, please send an e-mail at nazmul_haque@cse.buet.ac.bd.
     </p>
 </div>
 

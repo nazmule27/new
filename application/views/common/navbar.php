@@ -39,6 +39,10 @@ $username = $CI->session->userdata('username');
                     <li>
                         <a href="<?=base_url();?>progress_committee/supervisor"><i class="glyphicon glyphicon-education"> </i> Upcoming Meeting</a>
                     </li>
+                        <p>--------------------------------------------------</p>
+                    <li>
+                        <a href="<?=base_url();?>general_meeting/General_meeting_home"> <i class="glyphicon glyphicon-folder-open"> </i>&nbsp; Meeting</a>
+                    </li>
                     <?php } ?>
                     <?php if(($role == 'Student')){?>
                     <li>
