@@ -28,6 +28,10 @@ $username = $CI->session->userdata('username');
                     <li>
                         <a href="<?=base_url();?>file_keeper/File_keeper_home"> <i class="glyphicon glyphicon-folder-open"> </i>&nbsp; File Keeper Home</a>
                     </li>
+                        <p>--------------------------------------------------</p>
+                    <li>
+                        <a href="<?=base_url();?>general_meeting/General_meeting_home"> <i class="glyphicon glyphicon-folder-open"> </i>&nbsp; Meeting</a>
+                    </li>
                     <?php } ?>
                     <?php if(($role == 'Supervisor')){?>
                     <li>
@@ -42,6 +46,10 @@ $username = $CI->session->userdata('username');
                         <p>--------------------------------------------------</p>
                     <li>
                         <a href="<?=base_url();?>general_meeting/General_meeting_home"> <i class="glyphicon glyphicon-folder-open"> </i>&nbsp; Meeting</a>
+                    </li>
+                    <p>--------------------------------------------------</p>
+                    <li>
+                        <a href="<?=base_url();?>file_keeper/File_keeper_home"> <i class="glyphicon glyphicon-folder-open"> </i>&nbsp; File Keeper Home</a>
                     </li>
                     <?php } ?>
                     <?php if(($role == 'Student')){?>

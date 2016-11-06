@@ -5,7 +5,7 @@ class File_keeper_home extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model("file_keeper/File_keeper_model", "File_keeper_model");
-		if((($this->session->userdata('role'))!=='Admin')&&(($this->session->userdata('role'))!=='Officer')) {
+		if((($this->session->userdata('role'))!=='Admin')&&(($this->session->userdata('role'))!=='Officer')&&(($this->session->userdata('role'))!=='Supervisor')) {
 			$this->session->set_flashdata('flash_data', 'You don\'t have access!');
 			redirect('login');
 		}

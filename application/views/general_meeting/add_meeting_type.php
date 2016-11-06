@@ -5,13 +5,13 @@ $this->load->view('common/navbar');
 ?>
 
 <div class="col-md-9 col-sm-8 col-xs-12">
-    <h3>Add Meeting Tag</h3>
+    <h3>Add Meeting Type</h3>
     <hr>
-    <form method="post" role="form" action="<?=base_url();?>general_meeting/General_meeting_home/save_tag">
+    <form method="post" role="form" action="<?=base_url();?>general_meeting/General_meeting_home/save_meeting_type">
         <div class="row">
             <div class="form-group col-md-8 required">
-                <label class="control-label">Meeting Tag (Only alphanumeric and _ (underscore) allowed):</label>
-                <input type="text" name="tag" maxlength="50" class="form-control" placeholder="Give meeting tag" pattern="^[a-zA-Z_0-9]+" required>
+                <label class="control-label">Meeting Type:</label>
+                <input type="text" name="meeting_type" maxlength="50" class="form-control" placeholder="Give meeting type" required>
             </div>
         </div>
         <div class="row">

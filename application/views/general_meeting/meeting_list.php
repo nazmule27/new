@@ -13,19 +13,22 @@ $this->load->view('common/navbar');
     <table id="meeting_list" class="display " cellspacing="0" width="100%" >
         <thead>
         <tr>
+            <th>Meeting No</th>
             <th>Meeting Title</th>
             <th>Meeting Date</th>
             <th>Resolution no</th>
-            <th>Resolution</th>
+            <th width="200">Resolution</th>
             <th>Tag Title</th>
             <th>Submitted by</th>
             <th>Details</th>
         </tr>
         </thead>
         <tbody>
-        <?php for ($i = 0; $i < count($meetings); ++$i) { ?>
+        <?php
+        for ($i = 0; $i < count($meetings); ++$i) { ?>
         <tr>
-            <td><?php echo $meetings[$i]->title;?></td>
+            <td><?php echo $meetings[$i]->meeting_no;?></td>
+            <td><?php echo $meetings[$i]->title_type;?></td>
             <td><?php echo date("Y-m-d", strtotime($meetings[$i]->date)); ?></td>
             <td><?php echo $meetings[$i]->resolution_no;?></td>
             <td><?php
@@ -53,6 +56,6 @@ $this->load->view('common/footer');
     $('#meeting_list').dataTable( {
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
         "pagingType": "full_numbers",
-        "order": [[ 1, "desc" ]],
+        "order": [[ 0, "desc" ]],
     });
 </script>
