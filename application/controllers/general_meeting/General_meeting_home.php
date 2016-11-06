@@ -22,15 +22,17 @@ class General_meeting_home extends CI_Controller {
 	}
 	public function add_meeting_resolution()
 	{
+		$data['meeting_type'] = $this->General_meeting_model->getMeetingType();
 		$data['tag'] = $this->General_meeting_model->getTag();
 		$this->load->view('general_meeting/meeting_save', $data);
 	}
 	public function save_meeting() {
-		$status = $this->General_meeting_model->validateMeetingResolution($this->input->post('resolution_no'));
+		$status = $this->General_meeting_model->validateMeetingMeeting($this->input->post('meeting_no'));
 		$CI = &get_instance();
 		$username = $CI->session->userdata('username');
 		if(empty($status)) {
 			$data = array(
+				'meeting_no' => $this->input->post('meeting_no'),
 				'title' => $this->input->post('title'),
 				'date' => $this->input->post('date'),
 				'resolution_no' => $this->input->post('resolution_no'),
@@ -46,16 +48,38 @@ class General_meeting_home extends CI_Controller {
 				);
 			}
 			$this->General_meeting_model->saveMeetingTag($tag_data);
+			$data['meeting_type'] = $this->General_meeting_model->getMeetingType();
 			$data['tag'] = $this->General_meeting_model->getTag();
 			$data['success_msg'] = '<div class="alert alert-success text-center">Your meeting resolution saved successfully! <strong><a class="close" title="close" aria-label="close" data-dismiss="alert" href="#">  &times;</a> </strong></div>';
 			$this->load->view('general_meeting/meeting_save', $data);
 		}
 		else {
+			$data['meeting_type'] = $this->General_meeting_model->getMeetingType();
 			$data['tag'] = $this->General_meeting_model->getTag();
-			$data['success_msg'] = '<div class="alert alert-danger text-center">Sorry, Your meeting resolution no already exist. Please try again! <strong><a class="close" title="close" aria-label="close" data-dismiss="alert" href="#">  &times;</a> </strong></div>';
+			$data['success_msg'] = '<div class="alert alert-danger text-center">Sorry, Your meeting no already exist. Please try again! <strong><a class="close" title="close" aria-label="close" data-dismiss="alert" href="#">  &times;</a> </strong></div>';
 			$this->load->view('general_meeting/meeting_save', $data);
 		}
 
+	}
+	public function add_meeting_type()
+	{
+		$this->load->view('general_meeting/add_meeting_type');
+	}
+	public function save_meeting_type()
+	{
+		$status = $this->General_meeting_model->validateMeetingType($this->input->post('meeting_type'));
+		if(empty($status)) {
+			$data = array(
+				'title' => $this->input->post('meeting_type'),
+			);
+			$this->General_meeting_model->saveMeetingType($data);
+			$data['success_msg'] = '<div class="alert alert-success text-center">Meeting type successfully added! <strong><a class="close" title="close" aria-label="close" data-dismiss="alert" href="#">  &times;</a> </strong></div>';
+			$this->load->view('general_meeting/add_meeting_type', $data);
+		}
+		else {
+			$data['success_msg'] = '<div class="alert alert-danger text-center">Sorry, this type already exist. Please try another one! <strong><a class="close" title="close" aria-label="close" data-dismiss="alert" href="#">  &times;</a> </strong></div>';
+			$this->load->view('general_meeting/add_meeting_type', $data);
+		}
 	}
 	public function add_tag()
 	{
