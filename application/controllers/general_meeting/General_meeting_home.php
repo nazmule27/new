@@ -5,7 +5,7 @@ class General_meeting_home extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model("general_meeting/General_meeting_model", "General_meeting_model");
-		if((($this->session->userdata('role'))!=='Admin')&&(($this->session->userdata('role'))!=='Supervisor')) {
+		if((($this->session->userdata('role'))!=='Admin')&&(($this->session->userdata('role'))!=='BPGSSec')&&(($this->session->userdata('role'))!=='BUGSSec')&&(($this->session->userdata('role'))!=='BRTCSec')&&(($this->session->userdata('role'))!=='DeptSec')) {
 			$this->session->set_flashdata('flash_data', 'You don\'t have access!');
 			redirect('login');
 		}
@@ -27,7 +27,7 @@ class General_meeting_home extends CI_Controller {
 		$this->load->view('general_meeting/meeting_save', $data);
 	}
 	public function save_meeting() {
-		$status = $this->General_meeting_model->validateMeetingMeeting($this->input->post('meeting_no'));
+		$status = $this->General_meeting_model->validateMeetingNoResolution($this->input->post('meeting_no'), $this->input->post('resolution_no'));
 		$CI = &get_instance();
 		$username = $CI->session->userdata('username');
 		if(empty($status)) {
@@ -56,7 +56,7 @@ class General_meeting_home extends CI_Controller {
 		else {
 			$data['meeting_type'] = $this->General_meeting_model->getMeetingType();
 			$data['tag'] = $this->General_meeting_model->getTag();
-			$data['success_msg'] = '<div class="alert alert-danger text-center">Sorry, Your meeting no already exist. Please try again! <strong><a class="close" title="close" aria-label="close" data-dismiss="alert" href="#">  &times;</a> </strong></div>';
+			$data['success_msg'] = '<div class="alert alert-danger text-center">Sorry, Your meeting no and resolution no already exist. Please try again! <strong><a class="close" title="close" aria-label="close" data-dismiss="alert" href="#">  &times;</a> </strong></div>';
 			$this->load->view('general_meeting/meeting_save', $data);
 		}
 

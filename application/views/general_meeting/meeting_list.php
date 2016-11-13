@@ -14,9 +14,9 @@ $this->load->view('common/navbar');
         <thead>
         <tr>
             <th>Meeting No</th>
+            <th>Resolution no</th>
             <th>Meeting Title</th>
             <th>Meeting Date</th>
-            <th>Resolution no</th>
             <th width="200">Resolution</th>
             <th>Tag Title</th>
             <th>Submitted by</th>
@@ -28,9 +28,9 @@ $this->load->view('common/navbar');
         for ($i = 0; $i < count($meetings); ++$i) { ?>
         <tr>
             <td><?php echo $meetings[$i]->meeting_no;?></td>
+            <td><?php echo $meetings[$i]->resolution_no;?></td>
             <td><?php echo $meetings[$i]->title_type;?></td>
             <td><?php echo date("Y-m-d", strtotime($meetings[$i]->date)); ?></td>
-            <td><?php echo $meetings[$i]->resolution_no;?></td>
             <td><?php
                 if(strlen($meetings[$i]->resolution)>55){
                     echo substr(($meetings[$i]->resolution),0, 55).' ...';
