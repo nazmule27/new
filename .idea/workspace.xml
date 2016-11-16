@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a12c4faa-82c8-4f4c-8a82-0eaf0a50f3a4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/general_meeting/General_meeting_home.php" afterPath="$PROJECT_DIR$/application/controllers/general_meeting/General_meeting_home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/general_meeting/General_meeting_model.php" afterPath="$PROJECT_DIR$/application/models/general_meeting/General_meeting_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/main.css" afterPath="$PROJECT_DIR$/assets/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/general_meeting/meeting_list.php" afterPath="$PROJECT_DIR$/application/views/general_meeting/meeting_list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/general_meeting/meeting_save.php" afterPath="$PROJECT_DIR$/application/views/general_meeting/meeting_save.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="a12c4faa-82c8-4f4c-8a82-0eaf0a50f3a4" name="Default" comment="" />
     <ignored path="new.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
