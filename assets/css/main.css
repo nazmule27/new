@@ -199,7 +199,24 @@ legend {
 	text-align: center;
 }
 
-
+#meeting_list tfoot th:nth-child(5) select {
+	display: none !important;
+}
+#meeting_list tfoot th:nth-child(8) select {
+	display: none !important;
+}
+#meeting_list tfoot th:last-child select {
+	display: none !important;
+}
+#meeting_list tfoot th {
+	padding:3px 5px;
+}
+#meeting_list tfoot th select {
+	border: 1px solid #dddddd;
+	height: 32px;
+	line-height: 28px;
+	padding:5px ;
+}
 
 
 

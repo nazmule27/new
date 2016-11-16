@@ -13,6 +13,15 @@ class General_meeting_home extends CI_Controller {
 	public function index()
 	{
 		$data['meetings'] = $this->General_meeting_model->getMeetings();
+		$data['tag'] = $this->General_meeting_model->getTag();
+		$this->load->view('general_meeting/meeting_list', $data);
+	}
+	public function filter_meeting()
+	{
+		$tag_array=$this->input->post('tag');
+		$tag = implode (",", $tag_array);
+		$data['meetings'] = $this->General_meeting_model->getFilterMeetings($tag);
+		$data['tag'] = $this->General_meeting_model->getTag();
 		$this->load->view('general_meeting/meeting_list', $data);
 	}
 	public function meeting_detail($id)
@@ -59,6 +68,12 @@ class General_meeting_home extends CI_Controller {
 			$data['success_msg'] = '<div class="alert alert-danger text-center">Sorry, Your meeting no and resolution no already exist. Please try again! <strong><a class="close" title="close" aria-label="close" data-dismiss="alert" href="#">  &times;</a> </strong></div>';
 			$this->load->view('general_meeting/meeting_save', $data);
 		}
+
+	}
+	public function meeting_delete($id) {
+		$this->General_meeting_model->deleteMeeting($id);
+		$this->General_meeting_model->deleteMeetingTag($id);
+		redirect('general_meeting/General_meeting_home');
 
 	}
 	public function add_meeting_type()

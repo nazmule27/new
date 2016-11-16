@@ -8,7 +8,6 @@ $this->load->view('common/navbar');
     <h3>Meeting Resolution Save</h3>
     <hr>
     <form method="post" role="form" action="<?=base_url();?>general_meeting/General_meeting_home/save_meeting" enctype="multipart/form-data">
-
         <div class="row">
             <div class="form-group col-md-6 required">
                 <label class="control-label">Meeting No:</label>

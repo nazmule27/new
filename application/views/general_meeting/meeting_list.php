@@ -17,12 +17,26 @@ $this->load->view('common/navbar');
             <th>Resolution no</th>
             <th>Meeting Title</th>
             <th>Meeting Date</th>
-            <th width="200">Resolution</th>
-            <th>Tag Title</th>
+            <th width="400">Resolution</th>
+            <th width="200">Tag Title</th>
             <th>Submitted by</th>
+            <th>Action</th>
             <th>Details</th>
         </tr>
         </thead>
+        <tfoot>
+        <tr>
+            <th>Meeting No</th>
+            <th>Resolution no</th>
+            <th>Meeting Title</th>
+            <th>Meeting Date</th>
+            <th width="400">Resolution</th>
+            <th width="200">Tag Title</th>
+            <th>Submitted by</th>
+            <th>Action</th>
+            <th>Details</th>
+        </tr>
+        </tfoot>
         <tbody>
         <?php
         for ($i = 0; $i < count($meetings); ++$i) { ?>
@@ -43,7 +57,12 @@ $this->load->view('common/navbar');
             </td>
             <td><?php echo $meetings[$i]->tag_title;?></td>
             <td><?php echo $meetings[$i]->submitted_by;?></td>
-            <td><a class="btn btn-info btn-sm" href="<?=base_url();?>general_meeting/General_meeting_home/meeting_detail/<?php echo $meetings[$i]->id;?>">Details</a> </td>
+            <td>
+                <a class="btn btn-danger btn-sm" href="<?=base_url();?>general_meeting/General_meeting_home/meeting_delete/<?php echo $meetings[$i]->id;?>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+            </td>
+            <td>
+                <a class="btn btn-info btn-sm" href="<?=base_url();?>general_meeting/General_meeting_home/meeting_detail/<?php echo $meetings[$i]->id;?>">Details</a>
+            </td>
         </tr>
         <?php } ?>
         </tbody>
@@ -56,6 +75,26 @@ $this->load->view('common/footer');
     $('#meeting_list').dataTable( {
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
         "pagingType": "full_numbers",
-        "order": [[ 0, "desc" ]],
+        "order": [[ 3, "desc" ]],
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
     });
 </script>

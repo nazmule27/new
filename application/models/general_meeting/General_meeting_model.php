@@ -10,7 +10,7 @@ class General_meeting_model extends CI_Model
     public function getMeetings()
     {
         $query = $this->db->query('SELECT `mtp`.`title` AS title_type, `mm`.* FROM
-  `general_meeting_type` mtp, (SELECT `m`.*,
+  `general_meeting_type` mtp, (SELECT `m`.*, mt.`tag_id`,
     GROUP_CONCAT(t.title) AS tag_title
   FROM
     general_meeting m
@@ -23,18 +23,36 @@ WHERE mm.title = mtp.id
 ORDER BY mm.`submitted_at` DESC');
         return $result = $query->result();
     }
-    public function getMeetingDetails($id)
+    public function getFilterMeetings($tag)
     {
         $query = $this->db->query('SELECT `mtp`.`title` AS title_type, `mm`.* FROM
-  `general_meeting_type` mtp, (SELECT `m`.*,
+  `general_meeting_type` mtp, (SELECT `m`.*, mt.`tag_id`,
     GROUP_CONCAT(t.title) AS tag_title
   FROM
     general_meeting m
     LEFT JOIN meeting_tag mt
     INNER JOIN tag t
       ON mt.`tag_id` = t.`id`
-      ON m.id = mt.meeting_id and m.id='.$id.') mm
-WHERE mm.title = mtp.id');
+      ON m.id = mt.meeting_id AND mt.`tag_id` IN ('.$tag.')
+  GROUP BY m.id) mm
+WHERE mm.title = mtp.id
+ORDER BY mm.`submitted_at` DESC');
+        return $result = $query->result();
+    }
+    public function getMeetingDetails($id)
+    {
+        $query = $this->db->query('SELECT `mtp`.`title` AS title_type, `mm`.* FROM
+  `general_meeting_type` mtp, (SELECT `m`.*, mt.`tag_id`,
+    GROUP_CONCAT(t.title) AS tag_title
+  FROM
+    general_meeting m
+    LEFT JOIN meeting_tag mt
+    INNER JOIN tag t
+      ON mt.`tag_id` = t.`id`
+      ON m.id = mt.meeting_id
+  GROUP BY m.id) mm
+WHERE mm.title = mtp.id AND mm.id='.$id.'
+ORDER BY mm.`submitted_at` DESC');
         /*$query = $this->db->query('SELECT m.id, m.meeting_no, m.title, m.`date`, m.`resolution_no`, m.`resolution`, m.`submitted_by`, GROUP_CONCAT(t.title)
 AS tag_title FROM general_meeting m LEFT JOIN meeting_tag mt
 INNER JOIN tag t
@@ -80,6 +98,16 @@ ON m.id=mt.meeting_id and m.id='.$id.'');*/
         $this->db->insert('general_meeting', $data);
         $insert_id = $this->db->insert_id();
         return  $insert_id;
+    }
+    public function deleteMeeting($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('general_meeting');
+    }
+    public function deleteMeetingTag($id)
+    {
+        $this->db->where('meeting_id', $id);
+        $this->db->delete('meeting_tag');
     }
     public function saveMeetingTag($tag_data)
     {
