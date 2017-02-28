@@ -30,7 +30,11 @@ $username = $CI->session->userdata('username');
                         </li>
                         <p>--------------------------------------------------</p>
                         <li>
-                            <a href="<?=base_url();?>general_meeting/General_meeting_home"> <i class="glyphicon glyphicon-folder-open"> </i>&nbsp; Meeting</a>
+                            <a href="<?=base_url();?>deans_list/Deans_list_home"> <i class="glyphicon glyphicon-bishop"> </i>&nbsp; Deans List</a>
+                        </li>
+                        <p>--------------------------------------------------</p>
+                        <li>
+                            <a href="<?=base_url();?>general_meeting/General_meeting_home"> <i class="glyphicon glyphicon-eye-open"> </i>&nbsp; Meeting</a>
                         </li>
                     <?php } ?>
                     <?php if(($role == 'BPGSSec')||($role == 'BUGSSec')||($role == 'BRTCSec')||($role == 'DeptSec')){?>

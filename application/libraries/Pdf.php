@@ -34,10 +34,10 @@ class Pdf extends FPDF
         $this->SetX(0);
         $this->Ln(1);
         $hal = 'Page : '.$this->PageNo().' of {nb}';
-        $this->Cell($this->GetStringWidth($hal ),10,$hal );
+        //$this->Cell($this->GetStringWidth($hal ),10,$hal );
         $datestring = "Year: %Y Month: %m Day: %d - %h:%i %a";
         $tanggal  = 'Printed : '.date('d-m-Y  h:i-a').' ';
-        $this->Cell($lebar-$this->GetStringWidth($hal )-$this->GetStringWidth($tanggal)-20);
+        $this->Cell($lebar-$this->GetStringWidth($hal )-$this->GetStringWidth($tanggal)-0);
         $this->Cell($this->GetStringWidth($tanggal),10,$tanggal );
 
     }
