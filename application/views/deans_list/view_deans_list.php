@@ -14,7 +14,8 @@ $this->load->view('common/navbar');
         <thead>
         <tr>
             <th>Student ID</th>
-            <th>first_name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Session</th>
             <th>Level</th>
         </tr>
@@ -24,6 +25,7 @@ $this->load->view('common/navbar');
         <tr>
             <td><?php echo $deans_list[$i]->student_id;?></td>
             <td><?php echo $deans_list[$i]->first_name;?></td>
+            <td><?php echo $deans_list[$i]->last_name;?></td>
             <td><?php echo $deans_list[$i]->session;?></td>
             <td><?php echo $deans_list[$i]->level;?></td>
         </tr>
