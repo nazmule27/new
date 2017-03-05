@@ -24,11 +24,11 @@ class Deans_list_home extends CI_Controller {
 		$date=date('d F Y').'       ';
 		for($i=0;$i < count($deans_list);$i++){
 			$ref='Ref.: DeansList/CSE/2017/'.$deans_list[$i]->id;
-			$name = $deans_list[$i]->first_name.' '.$deans_list[$i]->last_name;
+			$name = $deans_list[$i]->student_name;
 			$student_id = 'Student No.: '.$deans_list[$i]->student_id;
 			$dept = 'Department of CSE, BUET';
 			$dear = 'Dear '.$deans_list[$i]->first_name.',';
-			$text = 'I am enthusiastically please at the enrichment of your name in the prestigious Dean’s List of session  '.$deans_list[$i]->session.' (Level '.$deans_list[$i]->level.'). Congratulations!';
+			$text = 'I am enthusiastically pleased at the inclusion of your name in the prestigious Dean’s List of session  '.$deans_list[$i]->session.' (Level '.$deans_list[$i]->level.'). Congratulations!';
 			$text2='CSE Department is proud of your commendable academic performance. I am sure you will continue to strengthen this performance and make all of us proud with excellence in curricular  activities as well that will enhance the image of CSE Department in the World CSE Community.';
 			$sincerely='Yours sincerely,';
 			$head='Dr. M. Sohel Rahman';
