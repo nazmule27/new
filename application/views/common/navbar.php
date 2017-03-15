@@ -36,6 +36,10 @@ $username = $CI->session->userdata('username');
                         <li>
                             <a href="<?=base_url();?>general_meeting/General_meeting_home"> <i class="glyphicon glyphicon-eye-open"> </i>&nbsp; Meeting</a>
                         </li>
+                        <p>--------------------------------------------------</p>
+                        <li>
+                            <a href="<?=base_url();?>phd_applicant/Phd_applicant_home"> <i class="glyphicon glyphicon-file"> </i>&nbsp; Phd Applicant Files</a>
+                        </li>
                     <?php } ?>
                     <?php if(($role == 'BPGSSec')||($role == 'BUGSSec')||($role == 'BRTCSec')||($role == 'DeptSec')){?>
                         <li>
@@ -68,6 +72,12 @@ $username = $CI->session->userdata('username');
                     <li>
                         <a href="<?=base_url();?>progress_committee/student"><i class="glyphicon glyphicon-search"></i> Dashboard</a>
                     </li>
+                    <?php } ?>
+
+                    <?php if(($role == 'Phdapplicant')){?>
+                        <li>
+                            <a href="<?=base_url();?>phd_applicant/Phd_applicant_home"> <i class="glyphicon glyphicon-home"> </i>&nbsp; Phd Applicant Home</a>
+                        </li>
                     <?php } ?>
 
                     <?php if(($role == 'Officer')){?>
