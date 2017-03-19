@@ -5,7 +5,10 @@ $this->load->view('common/navbar');
 ?>
 
 <div class="col-md-9 col-sm-8 col-xs-12">
-    <h3>File Save</h3>
+    <h3>File Upload</h3>
+    <hr>
+    <a class="pull-right" href="<?=base_url();?>assets/docs/phd_applicant/SoPFormat.docx">Format of statement of purpose (SOP)</a><br><br>
+    <p>Please upload your curriculum vitae, recommendation letter, and statement of purpose (SOP) in support of application for admission in Ph.D. program in the Department of CSE, BUET. Please note that these documents will be considered while making the list of provisionally selected Ph.D. applicants</p>
     <hr>
     <form method="post" id="document-form" role="form" action="<?=base_url();?>phd_applicant/Phd_applicant_home/save_file" enctype="multipart/form-data">
         <div class="row">
@@ -17,7 +20,7 @@ $this->load->view('common/navbar');
                 ?>
             </div>
             <div class="form-group col-md-6 required">
-                <label class="control-label">Browse file (pdf, doc, docx, jpg):</label>
+                <label class="control-label">Browse file (pdf, doc, docx):</label>
                 <input type="file" name="scan_doc" id="scan_doc" required>
                 <span class="text-danger"><?php if (isset($error)) { echo $error; } ?></span>
             </div>

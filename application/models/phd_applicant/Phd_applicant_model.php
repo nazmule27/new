@@ -10,12 +10,12 @@ class Phd_applicant_model extends CI_Model
     public function getFileType()
     {
         $arr=array();
-        $this->db->select('type_name');
+        $this->db->select('type_id, type_name');
         $this->db->from('cseweb.phd_applicant_file_type');
         $this->db->order_by('type_name');
         $query = $this->db->get();
         foreach($query->result_array() as $row){
-            $arr[$row['type_name']]=$row['type_name'];
+            $arr[$row['type_id']]=$row['type_name'];
         }
         return $arr;
     }

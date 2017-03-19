@@ -15,6 +15,7 @@ $this->load->view('common/navbar');
         <tr>
             <th>SL no</th>
             <th>File Type</th>
+            <th>Applicant</th>
             <th>Created at</th>
             <th>Download</th>
         </tr>
@@ -24,6 +25,7 @@ $this->load->view('common/navbar');
         <tr>
             <td><?php echo $i+1;?></td>
             <td><?php echo $files[$i]->file_type;?></td>
+            <td><?php echo $files[$i]->created_by;?></td>
             <td><?php echo $files[$i]->created_at;?></td>
             <td><a class="btn btn-info btn-sm <?php if(!isset($files[$i]->file_name)) echo 'dis-none';?>" href="<?=base_url();?>assets/docs/phd_applicant/<?php echo $files[$i]->file_name;?>"><i class="glyphicon glyphicon-download"></i> Download</a> </td>
         </tr>
@@ -38,6 +40,6 @@ $this->load->view('common/footer');
     $('#file_list').dataTable( {
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
         "pagingType": "full_numbers",
-        "order": [[ 3, "desc" ]],
+        //"order": [[ 2, "asc" ]],
     });
 </script>

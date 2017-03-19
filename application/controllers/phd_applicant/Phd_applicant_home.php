@@ -24,7 +24,7 @@ class Phd_applicant_home extends CI_Controller {
 		$CI = &get_instance();
 		$username = $CI->session->userdata('username');
 		$config['upload_path'] = 'assets/docs/phd_applicant/';
-		$config['allowed_types'] = 'pdf|doc|docx|jpg';
+		$config['allowed_types'] = 'pdf|doc|docx';
 		$config['file_name'] = $username.'-'.$this->input->post('file_type');
 		$this->load->library('upload', $config);
 		$file_type= $this->input->post('file_type');
