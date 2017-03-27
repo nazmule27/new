@@ -76,7 +76,7 @@ $username = $CI->session->userdata('username');
 
                     <?php if(($role == 'Phdapplicant')){?>
                         <li>
-                            <a href="<?=base_url();?>phd_applicant/Phd_applicant_home"> <i class="glyphicon glyphicon-home"> </i>&nbsp; Phd Applicant Home</a>
+                            <a href="<?=base_url();?>phd_applicant/Phd_applicant_home"> <i class="glyphicon glyphicon-home"> </i>&nbsp; PhD Applicant Home</a>
                         </li>
                     <?php } ?>
 
